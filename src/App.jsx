@@ -4,15 +4,15 @@ import "./App.css";
 //import Counter from "./Counter";
 //import Stopwatch from "./Stopwatch";
 //import KittyGallery from "./KittyGallery";
-import DemoCounter from "./DemoCounter";
+//import DemoCounter from "./DemoCounter";
 import { useEffect } from "react";
-//import useLocalStorage from "./useLocalStorage";
-//import Header from "./header";
+import useLocalStorage from "./useLocalStorage";
+import Header from "./header";
 //import FruitBasket from "./FruitBasket";
 //import MemoEx from "./MemoEx";
 
 function App() {
-  //const [username, setUsername] = useLocalStorage("username", "");
+  const [username, setUsername] = useLocalStorage("username", "");
   const [showHeader, setShowHeader] = useState(false);
 
   console.log("%c App: render start", "color: hotpink");
@@ -43,28 +43,28 @@ function App() {
       console.log("%c App: useEffect with deps clean up", "color:darkred");
     };
   }, [showCounter]);
-  /*function submitForm(e) {
+  function submitForm(e) {
     e.preventDefault();
     setShowHeader((prev) => !prev);
-  }*/
+  }
   const element = (
     <>
       {showHeader && <Header />}
       <main className="App">
         <label htmlFor="showCounter">Show Counter</label>
         <input type="checkbox" name="showCounter" id="showCounter" onChange={(e) => setShowCounter(e.target.checked)} />
-        {showCounter && <DemoCounter />}
+        {/*{showCounter && <DemoCounter />}*/}
         {/*<Counter />*/}
         {/*<Stopwatch />*/}
         {/*<KittyGallery />*/}
       {/*<KittyGallery />*/ }
-        {/* <form action="" onSubmit={submitForm}>
+        <form action="" onSubmit={submitForm}>
           <fieldset>
             <label htmlFor="username">Username</label>
             <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
           </fieldset>
           <button type="submit">Login</button>
-        </form> */}
+        </form>
         {/* <FruitBasket /> */}
         {/*<MemoEx />*/}
       </main>
