@@ -2,8 +2,8 @@ import { useState } from "react";
 //import reactLogo from "./assets/react.svg";
 import "./App.css";
 //import Counter from "./Counter";
-import Stopwatch from "./Stopwatch";
-//import KittyGallery from "./KittyGallery";
+//import Stopwatch from "./Stopwatch";
+import KittyGallery from "./KittyGallery";
 //import DemoCounter from "./DemoCounter";
 import { useEffect } from "react";
 //import useLocalStorage from "./useLocalStorage";
@@ -55,9 +55,9 @@ function App() {
         <input type="checkbox" name="showCounter" id="showCounter" onChange={(e) => setShowCounter(e.target.checked)} />
         {/* {showCounter && <DemoCounter />} */}
         {/* <Counter /> */}
-        <Stopwatch />
-        {/* <KittyGallery />
-      <KittyGallery /> */}
+        {/*<Stopwatch />*/}
+        <KittyGallery />
+      {/*<KittyGallery />*/ }
         {/* <form action="" onSubmit={submitForm}>
           <fieldset>
             <label htmlFor="username">Username</label>
