@@ -8,8 +8,8 @@ import "./App.css";
 import { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 import Header from "./header";
-import FruitBasket from "./FruitBasket";
-//import MemoEx from "./MemoEx";
+//import FruitBasket from "./FruitBasket";
+import MemoEx from "./MemoEx";
 
 function App() {
   const [username, setUsername] = useLocalStorage("username", "");
@@ -65,8 +65,8 @@ function App() {
           </fieldset>
           <button type="submit">Login</button>
         </form>*/}
-        <FruitBasket />
-        {/*<MemoEx />*/}
+        {/*<FruitBasket />*/}
+        <MemoEx />
       </main>
     </>
   );
