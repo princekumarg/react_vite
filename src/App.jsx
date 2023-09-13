@@ -8,7 +8,7 @@ import "./App.css";
 import { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 import Header from "./header";
-//import FruitBasket from "./FruitBasket";
+import FruitBasket from "./FruitBasket";
 //import MemoEx from "./MemoEx";
 
 function App() {
@@ -58,14 +58,14 @@ function App() {
         {/*<Stopwatch />*/}
         {/*<KittyGallery />*/}
       {/*<KittyGallery />*/ }
-        <form action="" onSubmit={submitForm}>
+        {/*<form action="" onSubmit={submitForm}>
           <fieldset>
             <label htmlFor="username">Username</label>
             <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
           </fieldset>
           <button type="submit">Login</button>
-        </form>
-        {/* <FruitBasket /> */}
+        </form>*/}
+        <FruitBasket />
         {/*<MemoEx />*/}
       </main>
     </>
