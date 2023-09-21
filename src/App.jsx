@@ -5,11 +5,12 @@ import "./App.css";
 //import Stopwatch from "./Stopwatch";
 //import KittyGallery from "./KittyGallery";
 //import DemoCounter from "./DemoCounter";
-import { useEffect } from "react";
-import useLocalStorage from "./useLocalStorage";
-import Header from "./header";
+//import { useEffect } from "react";
+//import useLocalStorage from "./useLocalStorage";
+//import Header from "./header";
 //import FruitBasket from "./FruitBasket";
-import MemoEx from "./MemoEx";
+//import MemoEx from "./MemoEx";
+import PizzaToppings from "./PizzaToppings";
 
 function App() {
   const [username, setUsername] = useLocalStorage("username", "");
@@ -66,7 +67,8 @@ function App() {
           <button type="submit">Login</button>
         </form>*/}
         {/*<FruitBasket />*/}
-        <MemoEx />
+        {/*<MemoEx />*/}
+        <PizzaToppings />
       </main>
     </>
   );
