@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Component,useState } from "react";
 //import reactLogo from "./assets/react.svg";
 import "./App.css";
 //import Counter from "./Counter";
@@ -10,10 +10,47 @@ import "./App.css";
 //import Header from "./header";
 //import FruitBasket from "./FruitBasket";
 //import MemoEx from "./MemoEx";
-import PizzaToppings from "./PizzaToppings";
+//import PizzaToppings from "./PizzaToppings";
+//import CounterReducer from "./CounterReducer";
+class ErrorBoundary extends Component {
+  state = { error: null };
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  render() {
+    const { error } = this.state;
+    if (error) {
+      return (<div><pre>{error.message}</pre></div>);
+    }
+    return this.props.children;
+  }
+}
+function Breaker() {
+  const [count, setCount] = useState(0);
+  function handleClick() {
+    setCount((prev) => {
+      if (prev > 2) {
+        throw new Error("Boom 💥");
+      }
+      return prev + 1;
+    });
+  }
+  return <button onClick={handleClick}>{count}</button>;
+}
+
+function AnotherComponent() {
+  return <h1>Component for displaying some other info</h1>;
+}
 
 function App() {
-  const [username, setUsername] = useLocalStorage("username", "");
+  return(
+    <ErrorBoundary>
+      <Breaker />
+      <AnotherComponent />
+    </ErrorBoundary>
+  );
+}
+  /*const [username, setUsername] = useLocalStorage("username", "");
   const [showHeader, setShowHeader] = useState(false);
 
   console.log("%c App: render start", "color: hotpink");
@@ -47,14 +84,14 @@ function App() {
   function submitForm(e) {
     e.preventDefault();
     setShowHeader((prev) => !prev);
-  }
-  const element = (
+  }*/
+  /*const element = (
     <>
       {showHeader && <Header />}
       <main className="App">
         <label htmlFor="showCounter">Show Counter</label>
         <input type="checkbox" name="showCounter" id="showCounter" onChange={(e) => setShowCounter(e.target.checked)} />
-        {/*{showCounter && <DemoCounter />}*/}
+        {/*{showCounter && <DemoCounter />}*/
         {/*<Counter />*/}
         {/*<Stopwatch />*/}
         {/*<KittyGallery />*/}
@@ -68,12 +105,13 @@ function App() {
         </form>*/}
         {/*<FruitBasket />*/}
         {/*<MemoEx />*/}
-        <PizzaToppings />
-      </main>
-    </>
-  );
-  console.log("%c App: render end", "color: hotpink");
-  return element;
-}
+        {/*<PizzaToppings />*/}
+
+      {/*</main>
+      </>*/}
+  /*);*/
+  /*console.log("%c App: render end", "color: hotpink");
+  return element;*/
+/*}*/
 
 export default App;
