@@ -11,7 +11,7 @@ import "./App.css";
 //import FruitBasket from "./FruitBasket";
 //import MemoEx from "./MemoEx";
 //import PizzaToppings from "./PizzaToppings";
-//import CounterReducer from "./CounterReducer";
+import CounterReducer from "./CounterReducer";
 class ErrorBoundary extends Component {
   state = { error: null };
   static getDerivedStateFromError(error) {
@@ -63,11 +63,11 @@ function App() {
   return(
     <ErrorBoundary FallbackComponent={AppLevelFallbackComponent}>
       <div className="App">
-        <ErrorBoundary FallbackComponent={FallbackComponent}>
+        {/*<ErrorBoundary FallbackComponent={FallbackComponent}>
           <Breaker />
         </ErrorBoundary>
-        <AnotherComponent />
-        {/*<CounterReducer />*/}
+        <AnotherComponent />*/}
+        <CounterReducer />
       </div>
     </ErrorBoundary>
   );
