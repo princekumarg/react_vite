@@ -1,3 +1,7 @@
+import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import { Component,useState } from "react";
 //import reactLogo from "./assets/react.svg";
 import "./App.css";
@@ -11,8 +15,8 @@ import "./App.css";
 //import FruitBasket from "./FruitBasket";
 //import MemoEx from "./MemoEx";
 //import PizzaToppings from "./PizzaToppings";
-import CounterReducer from "./CounterReducer";
-class ErrorBoundary extends Component {
+//import CounterReducer from "./CounterReducer";
+/*class ErrorBoundary extends Component {
   state = { error: null };
   static getDerivedStateFromError(error) {
     return { error };
@@ -24,17 +28,17 @@ class ErrorBoundary extends Component {
     }
     return this.props.children;
   }
-}
+}*/
 
-function FallbackComponent({ error }) {
+/*function FallbackComponent({ error }) {
   return (
     <div>
       <p>Something went wrong</p>
       <pre>{error.message}</pre>
     </div>
   );
-}
-function AppLevelFallbackComponent({ error }) {
+}*/
+/*function AppLevelFallbackComponent({ error }) {
   return (
     <div>
       <p>App level</p>
@@ -57,19 +61,26 @@ function Breaker() {
 
 function AnotherComponent() {
   return <h1>Component for displaying some other info</h1>;
-}
+}*/
 
 function App() {
   return(
-    <ErrorBoundary FallbackComponent={AppLevelFallbackComponent}>
-      <div className="App">
-        {/*<ErrorBoundary FallbackComponent={FallbackComponent}>
-          <Breaker />
-        </ErrorBoundary>
-        <AnotherComponent />*/}
-        <CounterReducer />
-      </div>
-    </ErrorBoundary>
+    //{/*<ErrorBoundary FallbackComponent={AppLevelFallbackComponent}>*/
+    //{/*<div className="App">*/}
+     //   {/*<ErrorBoundary FallbackComponent={FallbackComponent}>
+       //   <Breaker />
+        //</ErrorBoundary>
+      //  <AnotherComponent />*/}
+      //  {/*<CounterReducer />*/}
+    //  {/*</div>*/}
+    //  {/*</ErrorBoundary>*/}
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
+      </Route>
+    </Routes>
   );
 }
   /*const [username, setUsername] = useLocalStorage("username", "");
@@ -135,5 +146,40 @@ function App() {
   /*console.log("%c App: render end", "color: hotpink");
   return element;*/
 /*}*/
+function Layout() {
+  return (
+    <div className="layout">
+      <header className="header">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main className="main">
+        <Outlet />
+      </main>
+      <footer className="footer">this is the footer</footer>
+    </div>
+  );
+}
 
+function Dashboard() {
+  return <h1>this is dashboard</h1>;
+}
+
+function About() {
+  return <h1>This is about</h1>;
+}
+function Home() {
+  return <h1>This is home</h1>;
+}
 export default App;

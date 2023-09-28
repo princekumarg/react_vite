@@ -70,7 +70,34 @@ button:focus-visible {
 ul {
   list-style: none;
 }
+.layout {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "content content content"
+    "footer footer footer";
+}
+.header {
+  grid-area: header;
 
+  border-bottom: solid 1px #f9f9f9;
+}
+.main {
+  grid-area: content;
+}
+.footer {
+  border-top: solid 1px #f9f9f9;
+  grid-area: footer;
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
 .gallery {
   display: flex;
   flex-wrap: nowrap;
